@@ -10,6 +10,8 @@ import 'package:transaction_apps/ui/pages/sign_up_set_ktp_page.dart';
 import 'package:transaction_apps/ui/pages/sign_up_set_profile_page.dart';
 import 'package:transaction_apps/ui/pages/sign_up_success_pages.dart';
 import 'package:transaction_apps/ui/pages/splash_page.dart';
+import 'package:transaction_apps/ui/pages/topup_amount_page.dart';
+import 'package:transaction_apps/ui/pages/topup_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -36,12 +38,15 @@ class MyApp extends StatelessWidget {
         '/onboarding': (context) => const OnboardingPage(),
         '/sign-in': (context) => const SignInPage(),
         '/sign-up': (context) => const SignUpPage(),
-        '/sign-up-set-profile' : (context) => const SignUpSetProfilePage(),
-        '/sign-up-set-ktp' : (context) => const SignUpSetKtpPage(),
-        '/sign-up-success' : (context) => const SignUpSuccessPage(),
-        '/home' : (context) => const HomePage(),
+        '/sign-up-set-profile': (context) => const SignUpSetProfilePage(),
+        '/sign-up-set-ktp': (context) => const SignUpSetKtpPage(),
+        '/sign-up-success': (context) => const SignUpSuccessPage(),
+        '/home': (context) => const HomePage(),
         '/profile': (context) => const ProfilePage(),
-        'pin' : (context) => const PinPage(),
+        '/pin': (context) => const PinPage(),
+        '/topup': (context) => const TopupPage(),
+        '/topup-amount': (context) => const TopupAmountPage(),
+
       },
     );
   }

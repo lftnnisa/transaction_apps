@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:transaction_apps/shared/theme.dart';
-import 'package:transaction_apps/ui/pages/profile_menu_item.dart';
+import 'package:transaction_apps/ui/widgets/profile_menu_item.dart';
+import 'package:transaction_apps/ui/widgets/buttons.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class ProfilePage extends StatelessWidget {
         ),
         children: [
           const SizedBox(
-            height: 40,
+            height: 30,
           ),
           Container(
             padding: const EdgeInsets.symmetric(
@@ -78,13 +79,15 @@ class ProfilePage extends StatelessWidget {
                 ProfileMenuItem(
                   iconUrl: 'assets/icons/edit_profile.png',
                   title: 'Edit Profile',
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/pin');
+                  },
                 ),
                 ProfileMenuItem(
                   iconUrl: 'assets/icons/pin.png',
                   title: 'My Pin',
                   onTap: () {
-                    Navigator.pushNamed(context, '/pin');
+
                   },
                 ),
                 ProfileMenuItem(
@@ -104,6 +107,13 @@ class ProfilePage extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+          const SizedBox(
+            height: 87,
+          ),
+          CustomTextButton(
+            title: 'Report a Problem',
+            onPressed: () {},
           ),
         ],
       ),
