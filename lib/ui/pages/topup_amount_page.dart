@@ -9,18 +9,27 @@ class TopupAmountPage extends StatefulWidget {
 }
 
 class _TopupAmountPageState extends State<TopupAmountPage> {
-  final TextEditingController pinController = TextEditingController();
+  final TextEditingController amountController = TextEditingController();
 
-  addPin(String number) {
-    if (pinController.text.length < 6) {
-      setState(() {
-        pinController.text = pinController.text + number;
+  addAmount(String number) {
+    if (amountController.text.length == '0') {
+      amountController.text == '';
+    }
+		setState(() {
+        amountController.text = amountController.text + number;
       });
-    }
 
-    if (pinController.text == '123123') {
-      Navigator.pop(context, true);
-    }
+		deleteAmount() {
+			if (amountController.text.isNotEmpty) {
+				setState(() {
+					amountController.text = amountController.text.substring(0, amountController.text.length - number;
+					if (amountController.text == '') {
+						amountController.text = '0';
+					}
+				});
+			}
+		}
+    
   }
 
   @override
