@@ -12,7 +12,7 @@ class TransferRecentUserItem extends StatelessWidget {
     required this.imageUrl,
     required this.name,
     required this.username,
-    required this.isVerified,
+    this.isVerified = false,
   }) : super(key: key);
 
   @override
@@ -21,6 +21,7 @@ class TransferRecentUserItem extends StatelessWidget {
       margin: const EdgeInsets.only(
         bottom: 18,
       ),
+      padding: const EdgeInsets.all(22),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: whiteColor,
@@ -56,7 +57,7 @@ class TransferRecentUserItem extends StatelessWidget {
                 height: 2,
               ),
               Text(
-                '@username',
+                '@$username',
                 style: greyTextStyle.copyWith(
                   fontSize: 12,
                 ),

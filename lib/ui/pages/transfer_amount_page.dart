@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:transaction_apps/shared/theme.dart';
 import 'package:transaction_apps/ui/widgets/buttons.dart';
 
-class TopupAmountPage extends StatefulWidget {
-  const TopupAmountPage({Key? key}) : super(key: key);
+class TransferAmountPage extends StatefulWidget {
+  const TransferAmountPage({Key? key}) : super(key: key);
 
   @override
-  State<TopupAmountPage> createState() => _TopupAmountPageState();
+  State<TransferAmountPage> createState() => _TransferAmountPageState();
 }
 
-class _TopupAmountPageState extends State<TopupAmountPage> {
+class _TransferAmountPageState extends State<TransferAmountPage> {
   final TextEditingController amountController =
   TextEditingController(text: '0');
 
@@ -182,12 +182,12 @@ class _TopupAmountPageState extends State<TopupAmountPage> {
               height: 50,
             ),
             CustomFilledButton(
-              title: 'Checkout Now',
-              onPressed: () async {
-                if (await Navigator.pushNamed(context, '/pin') == true) {
-                  Navigator.pushNamedAndRemoveUntil(context, '/topup-success', (route) => false);
+                title: 'Continue',
+                onPressed: () async {
+                  if (await Navigator.pushNamed(context, '/pin') == true) {
+                    Navigator.pushNamedAndRemoveUntil(context, '/transfer-success', (route) => false);
+                  }
                 }
-              }
             ),
             const SizedBox(
               height: 40,

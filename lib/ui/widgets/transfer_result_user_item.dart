@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:transaction_apps/shared/theme.dart';
+
 class TransferResultUserItem extends StatelessWidget {
   final String imageUrl;
   final String name;
   final String username;
   final bool isVerified;
+  final bool isSelected;
 
   const TransferResultUserItem({
     Key? key,
@@ -12,22 +14,75 @@ class TransferResultUserItem extends StatelessWidget {
     required this.name,
     required this.username,
     this.isVerified = false,
+    this.isSelected = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(
-        top: 40,
+      width: 155,
+      height: 175,
+      padding: const EdgeInsets.symmetric(
+        horizontal: 14,
+        vertical: 22,
+      ),
+      decoration: BoxDecoration(
+        color: whiteColor,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: isSelected ? blueColor : whiteColor,
+          width: 2,
+        ),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Container(
+            width: 70,
+            height: 70,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                image: AssetImage(
+                  imageUrl,
+                ),
+              ),
+            ),
+            child: isVerified ? Align(
+              alignment: Alignment.topRight,
+              child: Container(
+                width: 16,
+                height: 16,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: whiteColor,
+                ),
+                child: Center(
+                  child: Icon(
+                    Icons.check_circle,
+                    color: greenColor,
+                    size: 14,
+                  ),
+                ),
+              ),
+            ) : null,
+          ),
+          const SizedBox(
+            height: 13,
+          ),
           Text(
-            'Result',
+            name,
             style: blackTextStyle.copyWith(
               fontSize: 16,
-              fontWeight: semiBold,
+              fontWeight: medium,
+            ),
+          ),
+          const SizedBox(
+            height: 2,
+          ),
+          Text(
+            '@$username',
+            style: greyTextStyle.copyWith(
+              fontSize: 12,
             ),
           ),
         ],

@@ -9,7 +9,10 @@ import 'package:transaction_apps/ui/pages/profile_page.dart';
 import 'package:transaction_apps/ui/pages/splash_page.dart';
 import 'package:transaction_apps/ui/pages/topup_amount_page.dart';
 import 'package:transaction_apps/ui/pages/topup_page.dart';
-import 'package:transaction_apps/ui/pages/topup_success.dart';
+import 'package:transaction_apps/ui/pages/topup_success_page.dart';
+import 'package:transaction_apps/ui/pages/transfer_amount_page.dart';
+import 'package:transaction_apps/ui/pages/transfer_page.dart';
+import 'package:transaction_apps/ui/pages/transfer_success_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -39,7 +42,10 @@ class MyApp extends StatelessWidget {
         '/pin': (context) => const PinPage(),
         '/topup': (context) => const TopupPage(),
         '/topup-amount': (context) => const TopupAmountPage(),
-        'topup-success': (context) => const TopupSuccessPage(),
+        '/topup-success': (context) => const TopupSuccessPage(),
+        '/transfer': (context) => const TransferPage(),
+        '/transfer-amount': (context) => const TransferAmountPage(),
+        '/transfer-success': (context) => const TransferSuccessPage(),
         '/provider': (context) => const DataProviderPage(),
         '/data-package': (context) => const DataPackagePage(),
 

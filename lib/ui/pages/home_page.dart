@@ -235,7 +235,9 @@ class HomePage extends StatelessWidget {
               HomeServiceItem(
                 iconUrl: 'assets/icons/send.png',
                 title: 'Transfer',
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, '/transfer');
+                },
               ),
               HomeServiceItem(
                 iconUrl: 'assets/icons/phone_credit.png',
