@@ -15,54 +15,6 @@ class HomePage extends StatelessWidget {
         clipBehavior: Clip.antiAlias,
         notchMargin: 6,
         elevation: 0,
-        child: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: whiteColor,
-          elevation: 0,
-          selectedItemColor: blueColor,
-          unselectedItemColor: blackColor,
-          showSelectedLabels: true,
-          showUnselectedLabels: true,
-          selectedLabelStyle: blueTextStyle.copyWith(
-            fontSize: 10,
-            fontWeight: medium,
-          ),
-          unselectedLabelStyle: blackTextStyle.copyWith(
-            fontSize: 10,
-            fontWeight: medium,
-          ),
-          items: [
-            BottomNavigationBarItem(
-              icon: Image.asset(
-                'assets/icons/overview.png',
-                width: 20,
-                color: blueColor,
-              ),
-              label: 'Overview',
-            ),
-            BottomNavigationBarItem(
-              icon: Image.asset(
-                'assets/icons/history.png',
-                width: 20,
-              ),
-              label: 'History',
-            ),
-            BottomNavigationBarItem(
-              icon: Image.asset(
-                'assets/icons/statistic.png',
-                width: 20,
-              ),
-              label: 'Statistic',
-            ),
-            BottomNavigationBarItem(
-              icon: Image.asset(
-                'assets/icons/reward.png',
-                width: 20,
-              ),
-              label: 'Reward',
-            ),
-          ],
-        ),
       ),
       body: ListView(
         padding: const EdgeInsets.symmetric(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:transaction_apps/shared/theme.dart';
+import 'package:transaction_apps/ui/pages/onboarding_pages.dart';
 import 'package:transaction_apps/ui/widgets/profile_menu_item.dart';
-import 'package:transaction_apps/ui/widgets/buttons.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -77,27 +77,14 @@ class ProfilePage extends StatelessWidget {
                   height: 40,
                 ),
                 ProfileMenuItem(
-                  iconUrl: 'assets/icons/edit_profile.png',
-                  title: 'Edit Profile',
-                  onTap: () {
-                    Navigator.pushNamed(context, '/pin');
-                  },
-                ),
-                ProfileMenuItem(
-                  iconUrl: 'assets/icons/pin.png',
-                  title: 'My Pin',
-                  onTap: () {
-                  },
-                ),
-                ProfileMenuItem(
-                  iconUrl: 'assets/icons/wallet.png',
-                  title: 'Wallet Setting',
-                  onTap: () {},
-                ),
-                ProfileMenuItem(
                   iconUrl: 'assets/icons/logout.png',
                   title: 'Log Out',
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => OnboardingPage()),
+                    );
+                  },
                 ),
               ],
             ),

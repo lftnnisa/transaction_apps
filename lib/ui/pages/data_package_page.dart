@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:transaction_apps/shared/theme.dart';
 import 'package:transaction_apps/ui/widgets/buttons.dart';
 import 'package:transaction_apps/ui/widgets/forms.dart';
+import 'package:transaction_apps/ui/widgets/package_item.dart';
 
 class DataPackagePage extends StatelessWidget {
   const DataPackagePage({Key? key}) : super(key: key);
@@ -11,7 +12,7 @@ class DataPackagePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Paket Data',
+          'Phone Credit',
         ),
       ),
       body: ListView(
@@ -23,7 +24,7 @@ class DataPackagePage extends StatelessWidget {
             height: 30,
           ),
           CustomFormField(
-            title: 'Nomer Hp',
+            title: 'Phone Number',
           ),
           const SizedBox(
             height: 40,
@@ -43,20 +44,20 @@ class DataPackagePage extends StatelessWidget {
               spacing: 17,
               runSpacing: 17,
               children: const [
-                PaketResultItem(
+                PackageItem(
                   amount: 10,
                   price: 100000,
                   isSelected: true,
                 ),
-                PaketResultItem(
+                PackageItem(
                   amount: 50,
                   price: 150000,
                 ),
-                PaketResultItem(
+                PackageItem(
                   amount: 15,
                   price: 25000,
                 ),
-                PaketResultItem(
+                PackageItem(
                   amount: 5,
                   price: 20000,
                 ),
