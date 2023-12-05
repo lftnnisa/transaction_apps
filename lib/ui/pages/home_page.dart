@@ -140,7 +140,7 @@ class HomePage extends StatelessWidget {
             style: whiteTextStyle ,
           ),
           Text(
-            'Rp 100.000',
+            'Rp 750.000',
             style: whiteTextStyle.copyWith(
               fontSize: 24,
               fontWeight: semiBold,
@@ -273,16 +273,16 @@ class HomePage extends StatelessWidget {
             child: Column(
               children: const [
                 HomeLatestTransactionItem(
-                    iconUrl: 'assets/icons/transaction_cat1.png',
-                    title: 'Top Up',
-                    time: 'Yesterday',
-                    value: '+ 450.000',
+                    iconUrl: 'assets/icons/transaction_cat4.png',
+                    title: 'Transfer',
+                    time: '50 minutes ago',
+                    value: '- 50.000',
                 ),
                 HomeLatestTransactionItem(
-                  iconUrl: 'assets/icons/transaction_cat1.png',
-                  title: 'Top Up',
-                  time: 'Yesterday',
-                  value: '+ 450.000',
+                  iconUrl: 'assets/icons/transaction_cat3.png',
+                  title: 'Internet Data',
+                  time: '2 hours ago',
+                  value: '- 150.000',
                 ),
                 HomeLatestTransactionItem(
                   iconUrl: 'assets/icons/transaction_cat1.png',
