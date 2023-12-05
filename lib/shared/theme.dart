@@ -9,7 +9,9 @@ Color darkBackgroundColor = const Color(0xff020518);
 Color blueColor = const Color(0xff53C1F9);
 Color purpleColor = const Color(0xff5145E6);
 Color greenColor = const Color(0xff22B07D);
+Color redColor = const Color(0xffFF2566);
 Color numberBackgroundColor = const Color(0xffbbbfc2);
+
 
 TextStyle blackTextStyle = GoogleFonts.poppins(
   color: blackColor,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:transaction_apps/shared/shared_methods.dart';
 import 'package:transaction_apps/shared/theme.dart';
 import 'package:transaction_apps/ui/widgets/buttons.dart';
 
@@ -10,20 +11,30 @@ class PinPage extends StatefulWidget {
 }
 
 class _PinPageState extends State<PinPage> {
-  final TextEditingController pinController= TextEditingController(text: '');
+  final TextEditingController pinController = TextEditingController(text: '');
+  String pin = '';
 
   addPin(String number) {
-    if(pinController.text.length < 6) {
+    if (pinController.text.length < 6) {
       setState(() {
         pinController.text = pinController.text + number;
       });
     }
+
+    if (pinController.text.length == 6) {
+      if (pinController.text == '123123') {
+        Navigator.pop(context, true);
+      } else {
+        showCustomSnackBar(context, 'PIN yang anda masukkan salah');
+      }
+    }
   }
-  
+
   deletePin() {
-    if(pinController.text.isNotEmpty) {
+    if (pinController.text.isNotEmpty) {
       setState(() {
-        pinController.text = pinController.text.substring(0, pinController.text.length - 1);
+        pinController.text =
+            pinController.text.substring(0, pinController.text.length - 1);
       });
     }
   }

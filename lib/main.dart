@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:transaction_apps/shared/theme.dart';
+import 'package:transaction_apps/ui/pages/data_package_page.dart';
+import 'package:transaction_apps/ui/pages/data_provider_page.dart';
 import 'package:transaction_apps/ui/pages/home_page.dart';
 import 'package:transaction_apps/ui/pages/onboarding_pages.dart';
 import 'package:transaction_apps/ui/pages/pin_page.dart';
@@ -12,6 +14,7 @@ import 'package:transaction_apps/ui/pages/sign_up_success_pages.dart';
 import 'package:transaction_apps/ui/pages/splash_page.dart';
 import 'package:transaction_apps/ui/pages/topup_amount_page.dart';
 import 'package:transaction_apps/ui/pages/topup_page.dart';
+import 'package:transaction_apps/ui/pages/topup_success.dart';
 
 void main() => runApp(const MyApp());
 
@@ -46,6 +49,9 @@ class MyApp extends StatelessWidget {
         '/pin': (context) => const PinPage(),
         '/topup': (context) => const TopupPage(),
         '/topup-amount': (context) => const TopupAmountPage(),
+        'topup-success': (context) => const TopupSuccessPage(),
+        '/provider': (context) => const DataProviderPage(),
+        '/data-package': (context) => const DataPackagePage(),
 
       },
     );

@@ -64,15 +64,6 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: purpleColor,
-        child: Image.asset(
-          'assets/icons/plus_circle.png',
-          width: 24,
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: ListView(
         padding: const EdgeInsets.symmetric(
           horizontal: 24,
@@ -100,7 +91,7 @@ class HomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Halo,',
+                'Hi!,',
                 style: greyTextStyle.copyWith(
                   fontSize: 16,
                 ),
@@ -129,7 +120,7 @@ class HomePage extends StatelessWidget {
                 shape: BoxShape.circle,
                 image: DecorationImage(
                   image: AssetImage(
-                    'assets/img_profile.png',
+                    'assets/images/profile.png',
                   ),
                 ),
               ),
@@ -179,7 +170,7 @@ class HomePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Lifta Annisa',
+            'Lifta Annisa Husaina',
             style: whiteTextStyle.copyWith(
               fontSize: 18,
               fontWeight: medium,
@@ -270,7 +261,7 @@ class HomePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Do Something',
+            'Transaction',
             style: blackTextStyle.copyWith(
               fontSize: 16,
               fontWeight: semiBold,
@@ -295,14 +286,16 @@ class HomePage extends StatelessWidget {
                 onTap: () {},
               ),
               HomeServiceItem(
-                iconUrl: 'assets/icons/withdraw.png',
-                title: 'With Draw',
+                iconUrl: 'assets/icons/phone_credit.png',
+                title: 'Phone Credit',
                 onTap: () {},
               ),
               HomeServiceItem(
-                iconUrl: 'assets/icons/more.png',
-                title: 'More',
-                onTap: () {},
+                iconUrl: 'assets/icons/internet_data.png',
+                title: 'Internet Data',
+                onTap: () {
+                  Navigator.pushNamed(context, '/provider');
+                },
               ),
             ],
           ),

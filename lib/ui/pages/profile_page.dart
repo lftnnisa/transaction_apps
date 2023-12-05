@@ -87,17 +87,11 @@ class ProfilePage extends StatelessWidget {
                   iconUrl: 'assets/icons/pin.png',
                   title: 'My Pin',
                   onTap: () {
-
                   },
                 ),
                 ProfileMenuItem(
                   iconUrl: 'assets/icons/wallet.png',
                   title: 'Wallet Setting',
-                  onTap: () {},
-                ),
-                ProfileMenuItem(
-                  iconUrl: 'assets/icons/help.png',
-                  title: 'Help Center',
                   onTap: () {},
                 ),
                 ProfileMenuItem(
@@ -107,13 +101,6 @@ class ProfilePage extends StatelessWidget {
                 ),
               ],
             ),
-          ),
-          const SizedBox(
-            height: 87,
-          ),
-          CustomTextButton(
-            title: 'Report a Problem',
-            onPressed: () {},
           ),
         ],
       ),
