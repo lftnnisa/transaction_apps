@@ -92,7 +92,7 @@ class DataProviderPage extends StatelessWidget {
           ),
           CustomFilledButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/data-packages');
+              Navigator.pushNamed(context, '/data-package');
             },
             title: 'Continue',
           ),

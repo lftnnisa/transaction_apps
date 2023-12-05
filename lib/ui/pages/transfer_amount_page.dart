@@ -13,7 +13,7 @@ class _TransferAmountPageState extends State<TransferAmountPage> {
   final TextEditingController amountController =
   TextEditingController(text: '0');
 
-  addAmount(String number) {
+  void addAmount(String number) {
     if (amountController.text == '0') {
       amountController.text = '';
     }
@@ -22,11 +22,11 @@ class _TransferAmountPageState extends State<TransferAmountPage> {
     });
   }
 
-  deleteAmount() {
+  void deleteAmount() {
     if (amountController.text.isNotEmpty) {
       setState(() {
-        amountController.text = amountController.text
-            .substring(0, amountController.text.length - 1);
+        amountController.text =
+            amountController.text.substring(0, amountController.text.length - 1);
         if (amountController.text == '') {
           amountController.text = '0';
         }
@@ -34,168 +34,131 @@ class _TransferAmountPageState extends State<TransferAmountPage> {
     }
   }
 
+  Widget _buildTotalAmountText() {
+    return Center(
+      child: Text(
+        'Total Amount',
+        style: blackTextStyle.copyWith(
+          fontSize: 20,
+          fontWeight: semiBold,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildAmountInputField() {
+    return Align(
+      child: SizedBox(
+        width: 200,
+        child: TextFormField(
+          controller: amountController,
+          cursorColor: greyColor,
+          enabled: false,
+          style: blackTextStyle.copyWith(
+            fontSize: 36,
+            fontWeight: medium,
+          ),
+          decoration: InputDecoration(
+            prefixIcon: Text(
+              'Rp',
+              style: blackTextStyle.copyWith(
+                fontSize: 36,
+                fontWeight: medium,
+              ),
+            ),
+            disabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: greyColor,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildNumericButtons() {
+    return Wrap(
+      spacing: 40,
+      runSpacing: 40,
+      children: [
+        for (int i = 1; i <= 9; i++)
+          CustomInputButton(
+            title: i.toString(),
+            onTap: () => addAmount(i.toString()),
+          ),
+        const SizedBox(
+          width: 60,
+          height: 60,
+        ),
+        CustomInputButton(
+          title: '0',
+          onTap: () => addAmount('0'),
+        ),
+        GestureDetector(
+          onTap: deleteAmount,
+          child: Container(
+            width: 60,
+            height: 60,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: numberBackgroundColor,
+            ),
+            child: Center(
+              child: Icon(
+                Icons.arrow_back,
+                color: blackColor,
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildContinueButton() {
+    return CustomFilledButton(
+      title: 'Continue',
+      onPressed: () async {
+        if (await Navigator.pushNamed(context, '/pin') == true) {
+          Navigator.pushNamedAndRemoveUntil(
+              context, '/transfer-success', (route) => false);
+        }
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: ListView(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
             horizontal: 58,
           ),
           children: [
             const SizedBox(
               height: 60,
             ),
-            Center(
-              child: Text(
-                'Total Amount',
-                style: blackTextStyle.copyWith(
-                  fontSize: 20,
-                  fontWeight: semiBold,
-                ),
-              ),
-            ),
+            _buildTotalAmountText(),
             const SizedBox(
               height: 67,
             ),
-            Align(
-              child: SizedBox(
-                width: 200,
-                child: TextFormField(
-                  controller: amountController,
-                  cursorColor: greyColor,
-                  enabled: false,
-                  style: blackTextStyle.copyWith(
-                    fontSize: 36,
-                    fontWeight: medium,
-                  ),
-                  decoration: InputDecoration(
-                    prefixIcon: Text(
-                      'Rp',
-                      style: blackTextStyle.copyWith(
-                        fontSize: 36,
-                        fontWeight: medium,
-                      ),
-                    ),
-                    disabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        color: greyColor,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            _buildAmountInputField(),
             const SizedBox(
               height: 66,
             ),
-            Wrap(
-              spacing: 40,
-              runSpacing: 40,
-              children: [
-                CustomInputButton(
-                  title: '1',
-                  onTap: () {
-                    addAmount('1');
-                  },
-                ),
-                CustomInputButton(
-                  title: '2',
-                  onTap: () {
-                    addAmount('2');
-                  },
-                ),
-                CustomInputButton(
-                  title: '3',
-                  onTap: () {
-                    addAmount('3');
-                  },
-                ),
-                CustomInputButton(
-                  title: '4',
-                  onTap: () {
-                    addAmount('4');
-                  },
-                ),
-                CustomInputButton(
-                  title: '5',
-                  onTap: () {
-                    addAmount('5');
-                  },
-                ),
-                CustomInputButton(
-                  title: '6',
-                  onTap: () {
-                    addAmount('6');
-                  },
-                ),
-                CustomInputButton(
-                  title: '7',
-                  onTap: () {
-                    addAmount('7');
-                  },
-                ),
-                CustomInputButton(
-                  title: '8',
-                  onTap: () {
-                    addAmount('8');
-                  },
-                ),
-                CustomInputButton(
-                  title: '9',
-                  onTap: () {
-                    addAmount('9');
-                  },
-                ),
-                const SizedBox(
-                  width: 60,
-                  height: 60,
-                ),
-                CustomInputButton(
-                  title: '0',
-                  onTap: () {
-                    addAmount('0');
-                  },
-                ),
-                GestureDetector(
-                  onTap: () {
-                    deleteAmount();
-                  },
-                  child: Container(
-                    width: 60,
-                    height: 60,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: numberBackgroundColor,
-                    ),
-                    child: Center(
-                      child: Icon(
-                        Icons.arrow_back,
-                        color: blackColor,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            _buildNumericButtons(),
             const SizedBox(
               height: 50,
             ),
-            CustomFilledButton(
-                title: 'Continue',
-                onPressed: () async {
-                  if (await Navigator.pushNamed(context, '/pin') == true) {
-                    Navigator.pushNamedAndRemoveUntil(context, '/transfer-success', (route) => false);
-                  }
-                }
-            ),
+            _buildContinueButton(),
             const SizedBox(
               height: 40,
             ),
           ],
         ),
       ),
-
     );
   }
 }

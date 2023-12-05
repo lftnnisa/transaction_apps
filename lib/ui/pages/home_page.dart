@@ -9,13 +9,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomAppBar(
-        color: whiteColor,
-        shape: const CircularNotchedRectangle(),
-        clipBehavior: Clip.antiAlias,
-        notchMargin: 6,
-        elevation: 0,
-      ),
       body: ListView(
         padding: const EdgeInsets.symmetric(
           horizontal: 24,
@@ -240,11 +233,6 @@ class HomePage extends StatelessWidget {
                 },
               ),
               HomeServiceItem(
-                iconUrl: 'assets/icons/phone_credit.png',
-                title: 'Phone Credit',
-                onTap: () {},
-              ),
-              HomeServiceItem(
                 iconUrl: 'assets/icons/internet_data.png',
                 title: 'Internet Data',
                 onTap: () {
@@ -283,7 +271,7 @@ class HomePage extends StatelessWidget {
               color: whiteColor,
             ),
             child: Column(
-              children: [
+              children: const [
                 HomeLatestTransactionItem(
                     iconUrl: 'assets/icons/transaction_cat1.png',
                     title: 'Top Up',
