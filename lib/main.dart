@@ -50,8 +50,6 @@ class MyApp extends StatelessWidget {
         '/provider': (context) => const DataProviderPage(),
         '/data-package': (context) => const DataPackagePage(),
         '/data-success': (context) => const DataSuccessPage(),
-
-
       },
     );
   }

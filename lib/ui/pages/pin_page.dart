@@ -14,7 +14,7 @@ class _PinPageState extends State<PinPage> {
   final TextEditingController pinController = TextEditingController(text: '');
   String pin = '';
 
-  addPin(String number) {
+  void addPin(String number) {
     if (pinController.text.length < 6) {
       setState(() {
         pinController.text = pinController.text + number;
@@ -30,7 +30,7 @@ class _PinPageState extends State<PinPage> {
     }
   }
 
-  deletePin() {
+  void deletePin() {
     if (pinController.text.isNotEmpty) {
       setState(() {
         pinController.text =
@@ -38,7 +38,80 @@ class _PinPageState extends State<PinPage> {
       });
     }
   }
-  
+
+  Widget _buildTotalAmountText() {
+    return Text(
+      'Enter PIN',
+      style: blackTextStyle.copyWith(
+        fontSize: 20,
+        fontWeight: semiBold,
+      ),
+    );
+  }
+
+  Widget _buildPinInputField() {
+    return SizedBox(
+      width: 200,
+      child: TextFormField(
+        controller: pinController,
+        obscureText: true,
+        cursorColor: greyColor,
+        enabled: false,
+        style: blackTextStyle.copyWith(
+          fontSize: 36,
+          fontWeight: medium,
+          letterSpacing: 12,
+        ),
+        decoration: InputDecoration(
+          disabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(
+              color: lightBackgroundColor,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildNumericButtons() {
+    return Wrap(
+      spacing: 40,
+      runSpacing: 40,
+      children: [
+        for (int i = 1; i <= 9; i++)
+          CustomInputButton(
+            title: i.toString(),
+            onTap: () => addPin(i.toString()),
+          ),
+        const SizedBox(
+          width: 60,
+          height: 60,
+        ),
+        CustomInputButton(
+          title: '0',
+          onTap: () => addPin('0'),
+        ),
+        GestureDetector(
+          onTap: deletePin,
+          child: Container(
+            width: 70,
+            height: 70,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: numberBackgroundColor,
+            ),
+            child: Center(
+              child: Icon(
+                Icons.arrow_back,
+                color: blackColor,
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,130 +123,15 @@ class _PinPageState extends State<PinPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                'Enter PIN',
-                style: blackTextStyle.copyWith(
-                  fontSize: 20,
-                  fontWeight: semiBold,
-                ),
-              ),
+              _buildTotalAmountText(),
               const SizedBox(
                 height: 72,
               ),
-              SizedBox(
-                width: 200,
-                child: TextFormField(
-                  controller: pinController,
-                  obscureText: true,
-                  cursorColor: greyColor,
-                  enabled: false,
-                  style: blackTextStyle.copyWith(
-                    fontSize: 36,
-                    fontWeight: medium,
-                    letterSpacing: 12,
-                  ),
-                  decoration: InputDecoration(
-                    disabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        color: lightBackgroundColor,
-                      ),
-                    ),
-
-                  ),
-                ),
-              ),
+              _buildPinInputField(),
               const SizedBox(
                 height: 66,
               ),
-              Wrap(
-                spacing: 40,
-                runSpacing: 40,
-                children: [
-                  CustomInputButton(
-                    title: '1',
-                    onTap: () {
-                      addPin('1');
-                    },
-                  ),
-                  CustomInputButton(
-                    title: '2',
-                    onTap: () {
-                      addPin('2');
-                    },
-                  ),
-                  CustomInputButton(
-                    title: '3',
-                    onTap: () {
-                      addPin('3');
-                    },
-                  ),
-                  CustomInputButton(
-                    title: '4',
-                    onTap: () {
-                      addPin('4');
-                    },
-                  ),
-                  CustomInputButton(
-                    title: '5',
-                    onTap: () {
-                      addPin('5');
-                    },
-                  ),
-                  CustomInputButton(
-                    title: '6',
-                    onTap: () {
-                      addPin('6');
-                    },
-                  ),
-                  CustomInputButton(
-                    title: '7',
-                    onTap: () {
-                      addPin('7');
-                    },
-                  ),
-                  CustomInputButton(
-                    title: '8',
-                    onTap: () {
-                      addPin('8');
-                    },
-                  ),
-                  CustomInputButton(
-                    title: '9',
-                    onTap: () {
-                      addPin('9');
-                    },
-                  ),
-                  const SizedBox(
-                    width: 60,
-                    height: 60,
-                  ),
-                  CustomInputButton(
-                    title: '0',
-                    onTap: () {
-                      addPin('0');
-                    },
-                  ),
-                  GestureDetector(
-                    onTap: (){
-                      deletePin();
-                    },
-                    child: Container(
-                      width: 70,
-                      height: 70,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: numberBackgroundColor,
-                      ),
-                      child: Center(
-                        child: Icon(
-                          Icons.arrow_back,
-                          color: blackColor,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              _buildNumericButtons(),
             ],
           ),
         ),
